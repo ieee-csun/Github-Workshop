@@ -1,5 +1,0 @@
-
-# Ignoring the outputs produced LaTeX
-latex/*
-# But dont ignore any tex file
-!*\.tex
