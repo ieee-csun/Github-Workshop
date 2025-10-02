@@ -21,7 +21,7 @@
 \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % add the dots in Table of Content
 
 \DTMsetstyle{mmddyyyy} %datetime2
-\setminted[c]{style=colorful} %set the whole doc for C code.
+\setminted[python]{style=colorful} %set the whole doc for python code.
 \fancyhf{}
 
 \begin{document}
@@ -32,12 +32,12 @@
 
 \vspace{2in}
 \font\tmpfont=cmr12 at 40pt  %useful for large titles
-{\centering\tmpfont Github x Python Workshop \par}
+{\centering\tmpfont GitHub x Python Workshop \par}
 
 \vskip30pt
 
 \doublespacing
-{\centering\Huge Introduction to Git and Github \par}
+{\centering\Huge Introduction to Git and GitHub \par}
 
 \vspace{3in}
 
@@ -58,19 +58,19 @@
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhead[L]{\includegraphics[scale=1]{../images/ECS.eps}}
-\fancyhead[R]{IEEE CSUN\\Github Workshop}
+\fancyhead[R]{IEEE CSUN\\GitHub Workshop}
 \fancyfoot[R]{Page $|$ \thepage}
 
 \newenvironment{answer}{\par\bf}{}
 
 \section{Introduction}
-Git is a distributed version control system that helps developers track changes in code, collaborate, and manage projects. This guide will cover all the basics of utilizing git. GitHub is a web platform that uses Git for version control and adds collaboration features. This guide will cover how Github is used to back up but also use it as a collaboration platform.
+Git is a distributed version control system that helps developers track changes in code, collaborate, and manage projects. This guide will cover all the basics of utilizing git. GitHub is a web platform that uses Git for version control and adds collaboration features. This guide will cover how GitHub is used to back up but also use it as a collaboration platform.
 \section{Setup}
 We need to first install a Git-bash:\\
 
 \begin{itemize}
     \item Windows: \url{https://github.com/git-guides/install-git#install-git-on-windows}\\
-    \item Mac: Install Github from the App Store or using Homebrew:
+    \item Mac: Install GitHub from the App Store or using Homebrew:
 \verb+brew install git+\\
 \item Linux:
     \begin{itemize}
@@ -96,12 +96,14 @@ In the terminal run \verb+git --version+ to verify the installation of git.
 \caption{Printing git version}
 \end{figure}
 \section{Basic Bash (Optional)}
-Bash is a programing langauge that can be used like python. Like how python commands can run on Python's interactive shell, Bash commands can also run in a shell. It runs in the (B)ourne (a)gain (sh)ell usually in your terminal. For many Linux distro's Bash is the default and for Mac its Zsh. For Windows it Powershell. So in this workshop you will be learning a bit of linux. Here is some list of basic commands:
+Bash is a programming language that can be used like python. Like how python commands can run on Python's interactive shell, Bash commands can also run in a shell. It runs in the (B)ourne (a)gain (sh)ell usually in your terminal. For many Linux distro's Bash is the default and for Mac its Zsh. For Windows it is Powershell. So in this workshop you will be learning a bit of Linux. Here is some list of basic commands:
+
+
 \begin{itemize}
-    \item \verb`cd`: short for change directory. Used to traveral through the directories in your system. Directories are just folders. Examples:
+    \item \verb`cd`: short for change directory. Used to traversal through the directories in your system. Directories are just folders. Examples:
         \begin{itemize}
-            \item \verb`cd ~` or just \verb`cd` :This takes you back to ur home directory. Each user on the PC has their own homes.
-            \item \verb`cd ~/Downloads/`: This will take you to your Downloads folder.
+            \item \verb`cd ~` or just \verb`cd` :This takes you back to your home directory. Each user on the PC has their own home directory.
+            \item \verb`cd ~/Downloads/` :This will take you to your Downloads folder.
             \item \verb`cd ..` :This command take you back a single directory.
             \item \verb`cd ../..` :Takes you back two directories. You can add on to this to go back more directories.
             \item \verb`cd /`  :Take you to the home directory of the system. Usually users can't write any files here.
@@ -109,12 +111,12 @@ Bash is a programing langauge that can be used like python. Like how python comm
     \item \verb`ls`: Lists files and directories inside of your current directory. Examples:
         \begin{itemize}
             \item \verb` ls -a`: Lists all files and folders including hidden ones.
-            \item \verb`ls ~/Downloads/`: It would print out everything inyour downloads.
+            \item \verb`ls ~/Downloads/`: It would print out everything in your downloads.
             \item \verb`ls -l ~/Downloads/`: It would print everything in a list format, all entries in a single format.
         \end{itemize}
-    \item \verb`pwd`: short for print working directory. typing just that print where you are right now.
-    \item \verb`cat`: concatenates/prints the file you gave it. Ex. \verb`cat some_file.txt`: It would print out all thats in the file.
-    \item \verb`man`: Really usefull to read manuals about a command. Ex. \verb`man ls` tells you everything about the \textit{ls} command.
+    \item \verb`pwd`: short for print working directory. Typing just that print where you are right now.
+    \item \verb`cat`: concatenates/prints the file you gave it. Ex. \verb`cat some_file.txt`: It would print out all that's in the file.
+    \item \verb`man`: Really useful to read manuals about a command. Ex. \verb`man ls` tells you everything about the \textit{ls} command.
     \item \verb`ssh`: This command will allow us to remote access a server.
 \end{itemize}
 
@@ -131,7 +133,7 @@ Following that set up your username:
 \end{itemize}
 
 Typing \texttt{git config --list} or \verb`cat ~/.gitconfig` can help you verify if you set it up properly.\\\par
-\textbf{Note:} Use your Github email and username to have a seamless transition when working with Github.
+\textbf{Note:} Use your GitHub email and username to have a seamless transition when working with GitHub.
 
 \begin{figure}[H]
 \centering
@@ -153,42 +155,42 @@ After all this info dump of setting up git. Here is where we can get started. Lo
 \end{figure}
 \section{Setting up Authentication}
 
-Now that you created the repository, you need a way to let Github know that the person acessing your repository is you. This is done by using private and public key pairs. \\\\
+Now that you created the repository, you need a way to let GitHub know that the person accessing your repository is you. This is done by using private and public key pairs. \\\\
 In the terminal enter the follow command:\\
 \texttt{ssh-keygen -t ed25519 -C "<your\_GitHub\_email\_here>”}\\
 
-\noindent There will be a prompt asking you to choose where to save the key pair, leave it at its default location by pressing \textbf{Enter.} A second prompt will ask to create a password to further encrypt the keypair, you can press enter to not add a password if you choose so.\\\\
+\noindent There will be a prompt asking you to choose where to save the key pair, leave it at its default location by pressing \textbf{Enter.} A second prompt will ask to create a password to further encrypt the key pair, you can press enter to not add a password if you choose so.\\\\
 \textbf{Note:} Having a password will ask you to enter the password every time you boot up your PC. \\
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../images/workshop-I/key-gen.png}
-\caption{SSH key genarating}
+\caption{SSH key generating}
 \end{figure}
 
 \noindent\textbf{For Windows Users}: Enter following to start you ssh-agent: \texttt{eval "\$(ssh-agent -s)”} Now read the following steps like everyone else.\\
 
 \noindent \textbf{All Users:} Add your private key to the ssh-agent using this command:\\
-\verb`ssh-add ~/.ssh/id_ed25519` Next step is to copy the public ssh key to Github. Firstly run \verb`cat ~/.ssh/id_ed25519.pub` to print out the key and then head over to \url{https://github.com/settings/keys} or do it manually by clicking on the user profile then ``Settings" then to ``SSH and GPG keys"and add a new SSH key. To verfiy you have done all these steps correctly run \texttt{ssh -T git@github.com} 
+\verb`ssh-add ~/.ssh/id_ed25519` Next step is to copy the public ssh key to GitHub. Firstly run \verb`cat ~/.ssh/id_ed25519.pub` to print out the key and then head over to \url{https://github.com/settings/keys} or do it manually by clicking on the user profile then ``Settings" then to ``SSH and GPG keys"and add a new SSH key. To verify you have done all these steps correctly run \texttt{ssh -T git@github.com} 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.4]{../images/workshop-I/GH-new-key.png}
-\caption{Creating a new key to Github}
+\caption{Creating a new key to GitHub}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{../images/workshop-I/GH-add-key.png}
-\caption{Adding Key to Github}
+\caption{Adding Key to GitHub}
 \end{figure}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{../images/workshop-I/ssh-T.png}
-\caption{SSH output when logging into Github.}
+\caption{SSH output when logging into GitHub.}
 \end{figure}
 
 \section{Cloning a Repository}
 
-Head over to your Github Repository that you have created for this Python Project. There you will find a green button labeled ``Code". Click this button and select the SSH key menu. Here you can copy the SSH key for your GitHub repo. \\
+Head over to your GitHub Repository that you have created for this Python Project. There you will find a green button labeled ``Code". Click this button and select the SSH key menu. Here you can copy the SSH key for your GitHub repo. \\
 
 Syntax: \verb+"git clone <URL_here>"+ \\
 
@@ -201,15 +203,15 @@ Using the above you can clone the GitHub repo into your personal system. From he
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{../images/workshop-I/git-clone.png}
-\caption{Cloning a reop}
+\caption{Cloning a repo}
 \end{figure}
 
 \section{Adding Local Repository}
-Because of Github's capability of backing up your repo or encourging collabaration between others. Commands to run:
+Because of GitHub's capability of backing up your repo and encouraging collaboration between others. Commands to run:
 \begin{itemize}
     \item \verb`git init` will change the directory you are on to a git repo. you can check by doing \verb`ls -a` and look for a .git folder.
-    \item Head over to Github to create a new empty repo. You will be syncing your local git repo to that remote repo.
-    \item \verb`git remote add origin <URL>` this will add the url to your local repo. For us, use \verb`git@github.com:USERNAME/REPO.git` because we setup ssh verification.
+    \item Head over to GitHub to create a new \textbf{empty} repo. You will be syncing your local git repo to that remote repo.
+    \item \verb`git remote add origin <URL>` this will add the URL to your local repo. For us, use \verb`git@github.com:USERNAME/REPO.git` because we setup ssh verification.
     \item Now make sure to \verb`git add` your files and make a commit.
     \item Last step is to push the changes we do that by running. \verb`git push -u origin main`
 \end{itemize}
@@ -218,7 +220,7 @@ Because of Github's capability of backing up your repo or encourging collabarati
 
 When you have a git repo you are bound to make changes that you want to save and log so that you can revert changes later if something goes wrong. How do you save snapshots of your code? In git, we use \texttt{git commit}. To start off we run the command \texttt{git status -u} to see if there are any changes that need to be saved. If there are unsaved changes we add the files to a staging area where the files are waiting to be commited. We do that by either using \texttt{git add <file\_name>} or \texttt{git add -A} to commit all files. To commit our changes we do \texttt{git commit -m "a message about what you did"}. Final step is to store those changed made to the cloud, in our case to Github. We do that by running \texttt{git push} where we push the changes.\\
 
-\textbf{Note:} Doing \texttt{git add -A} may add unwanted files. To avoid such senario from ever happening we create a file called \verb+.gitignore+ where we can enter the file type, location, file name or all three combined should be ingored.
+\textbf{Note:} Doing \texttt{git add -A} may add unwanted files. To avoid such scenario from ever happening we create a file called \verb+.gitignore+ where we can enter the file type, location, file name or all three combined should be ignored.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{../images/workshop-I/git-add.png}
@@ -244,11 +246,11 @@ When you have a git repo you are bound to make changes that you want to save and
 
 \section{Frequently Used Commands}
 \begin{itemize}
-    \item \verb`git pull`: Allways to this when you start working of the project if you are collaborating .
+    \item \verb`git pull`: Always to this when you start working of the project if you are collaborating .
     \item \verb`git status`: This is to know what files are tracked and which files are not.
     \item \verb`git add file_name` and \verb`git rm file_name`: When you want to add or remove files from the project. \verb`git rm` also deletes the file.
     \item \verb`git commit -m "message"`: To backup changes to the code.
-    \item \verb`git push`: When you want to upload files to Github.
+    \item \verb`git push`: When you want to upload files to GitHub.
 \end{itemize}
 For more resources: \url{https://education.github.com/git-cheat-sheet-education.pdf}
 \clearpage
