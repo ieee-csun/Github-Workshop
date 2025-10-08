@@ -125,11 +125,11 @@ Bash is a programming language that can be used like python. Like how python com
 From now on all the steps for every operating system should be the same.
 Git requires its users to confirm people's identity to see who wrote the code. In the terminal type in
 \begin{itemize}
-\item\verb+git config --global user.email "<your_email_address_here>”+
+\item\verb+git config --global user.email "your_email_address_here”+
 \end{itemize}
 Following that set up your username:
 \begin{itemize}
-\item \verb+git config --global user.name "<your_user_name_here>"+
+\item \verb+git config --global user.name "your_user_name_here"+
 \end{itemize}
 
 Typing \texttt{git config --list} or \verb`cat ~/.gitconfig` can help you verify if you set it up properly.\\\par
@@ -157,7 +157,7 @@ After all this info dump of setting up git. Here is where we can get started. Lo
 
 Now that you created the repository, you need a way to let GitHub know that the person accessing your repository is you. This is done by using private and public key pairs. \\\\
 In the terminal enter the follow command:\\
-\texttt{ssh-keygen -t ed25519 -C "<your\_GitHub\_email\_here>”}\\
+\texttt{ssh-keygen -t ed25519 -C "your\_github\_email\_here”}\\
 
 \noindent There will be a prompt asking you to choose where to save the key pair, leave it at its default location by pressing \textbf{Enter.} A second prompt will ask to create a password to further encrypt the key pair, you can press enter to not add a password if you choose so.\\\\
 \textbf{Note:} Having a password will ask you to enter the password every time you boot up your PC. \\
@@ -192,7 +192,7 @@ In the terminal enter the follow command:\\
 
 Head over to your GitHub Repository that you have created for this Python Project. There you will find a green button labeled ``Code". Click this button and select the SSH key menu. Here you can copy the SSH key for your GitHub repo. \\
 
-Syntax: \verb+"git clone <URL_here>"+ \\
+Syntax: \texttt{git clone URL\_HERE}\\
 
 Using the above you can clone the GitHub repo into your personal system. From here it is simply a matter of opening your programming IDE and creating a python file in the created directory.
 \begin{figure}[H]
@@ -206,7 +206,7 @@ Using the above you can clone the GitHub repo into your personal system. From he
 \caption{Cloning a repo}
 \end{figure}
 
-\section{Adding Local Repository}
+\section{Adding Local Repository (Optional)}
 Because of GitHub's capability of backing up your repo and encouraging collaboration between others. Commands to run:
 \begin{itemize}
     \item \verb`git init` will change the directory you are on to a git repo. you can check by doing \verb`ls -a` and look for a .git folder.
